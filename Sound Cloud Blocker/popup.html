@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>SoundCloud Guard</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{width:360px;padding:20px;margin:0;background:#15171b;color:#f5f5f5;font:14px system-ui}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}h1{font-size:18px;margin:0}small{color:#aeb6c2;font-size:12px}
+label{display:flex;gap:10px;align-items:flex-start;margin:16px 0;line-height:1.4}input{accent-color:#ff782c}
+button{border:1px solid #49515e;border-radius:7px;background:#242a33;color:inherit;padding:9px 11px;cursor:pointer;font:inherit}
+button:hover{background:#323b47}button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid #ff9b63;outline-offset:3px}
+button:disabled{opacity:.45;cursor:default}#pause{width:100%;margin:6px 0 14px}
+#status{font-weight:600;margin:0 0 6px}#rules{color:#aeb6c2;font-size:12px}.state{padding:14px;background:#242a33;border-left:3px solid #ff782c;border-radius:7px}
+#notice{font-size:12px;line-height:1.5;color:#ffd0b5}summary{cursor:pointer;padding:8px 0}details p{font-size:12px;color:#b9c1cc;line-height:1.5}
+.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{font-size:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:190px;overflow:auto;font-size:11px}
+</style></head><body>
+<header><h1>SoundCloud Guard</h1><small id="version"></small></header>
+<div class="state"><p id="status" role="status" aria-live="polite">Checking this tab…</p><span id="rules"></span></div>
+<label><input id="blockRequests" type="checkbox"><span>Block audio-ad requests<br><small>Stops the known ad request before playback.</small></span></label>
+<label><input id="enabled" type="checkbox"><span>Mute ads &amp; skip when available<br><small>Fallback for ads that still reach the player.</small></span></label>
+<button id="pause">Pause guard &amp; restore audio</button>
+<details><summary>Troubleshooting &amp; privacy</summary>
+<label><input id="diagnosticLogs" type="checkbox"><span>Record diagnostic events<br><small>Off by default. Turning off clears event history.</small></span></label>
+<div class="actions"><button id="test">Test blocking rules</button><button id="mark">Mark missed ad</button><button id="export">Save report</button><button id="clear">Clear diagnostics</button></div>
+<p>Nothing is uploaded by Guard. Reports can contain song titles and media paths; review before sharing. Queries and URL credentials are stripped. <a href="PRIVACY.md" target="_blank" rel="noopener">Privacy details</a></p>
+<pre id="log"></pre></details>
+<p id="notice" role="status" aria-live="polite"></p>
+<script src="popup.js"></script></body></html>

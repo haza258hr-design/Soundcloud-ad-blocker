@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https://api-v2\\.soundcloud\\.com/audio-ads([?]|$)",
+      "initiatorDomains": ["soundcloud.com"],
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  }
+]
